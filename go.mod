@@ -2,4 +2,7 @@ module github.com/WKHAllen/pgtr-sample-app
 
 go 1.14
 
-require github.com/gin-gonic/gin v1.6.3
+require (
+	github.com/gin-gonic/gin v1.6.3
+	github.com/heroku/x v0.0.25
+)

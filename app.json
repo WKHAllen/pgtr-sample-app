@@ -1,0 +1,14 @@
+{
+  "name": "PGTR",
+  "description": "A sample app that uses a PostreSQL-Go-TypeScript-React stack",
+  "keywords": [
+    "postgresql",
+    "go",
+    "typescript",
+    "react",
+    "sample",
+    "example"
+  ],
+  "website": "https://pgtr.herokuapp.com/",
+  "repository": "https://github.com/WKHAllen/pgtr-sample-app"
+}
