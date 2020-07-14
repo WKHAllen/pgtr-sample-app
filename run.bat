@@ -1,2 +1,4 @@
 @echo off
-heroku local web -f Procfile.windows
+go build -o bin/pgtr.exe -v
+bin\pgtr.exe
+
