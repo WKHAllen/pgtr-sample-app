@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"net/http"
 	"os"
 
@@ -9,21 +8,31 @@ import (
 	_ "github.com/heroku/x/hmetrics/onload"
 )
 
+func getMessage(c *gin.Context) {
+	message := c.Query("message")
+	// get something...
+	c.JSON(http.StatusOK, gin.H{
+		"message": message,
+	})
+}
+
+func postSomething(c *gin.Context) {
+	// post something...
+	c.JSON(http.StatusOK, gin.H{
+		"success": true,
+	})
+}
+
 func main() {
 	port := os.Getenv("PORT")
-
 	if port == "" {
-		log.Fatal("$PORT must be set")
+		port = "3000"
 	}
 
-	router := gin.New()
-	router.Use(gin.Logger())
-	router.LoadHTMLGlob("templates/*.tmpl.html")
-	router.Static("/static", "static")
+	router := gin.Default()
 
-	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.tmpl.html", nil)
-	})
+	router.GET("/api/hello", getMessage)
+	router.POST("/api/hello", postSomething)
 
 	router.Run(":" + port)
 }
