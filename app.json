@@ -1,14 +1,12 @@
 {
-  "name": "PGTR",
-  "description": "A sample app that uses a PostreSQL-Go-TypeScript-React stack",
+  "name": "Start on Heroku: Go",
+  "description": "Go Getting Started Example App",
   "keywords": [
-    "postgresql",
+    "getting-started",
     "go",
-    "typescript",
-    "react",
     "sample",
     "example"
   ],
-  "website": "https://pgtr.herokuapp.com/",
-  "repository": "https://github.com/WKHAllen/pgtr-sample-app"
+  "website": "http://github.com/heroku/go-getting-started",
+  "repository": "http://github.com/heroku/go-getting-started"
 }

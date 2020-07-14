@@ -1,1 +1,1 @@
-web: bin/pgtr
+web: bin/go-getting-started
