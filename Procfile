@@ -1,1 +1,1 @@
-web: go build -o bin/pgtr && bin/pgtr
+web: pgtr-sample-app
