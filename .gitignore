@@ -1,5 +1,3 @@
-todo.txt
-.vscode
-*.DS_Store
 .env
 .docker_build/
+bin/
