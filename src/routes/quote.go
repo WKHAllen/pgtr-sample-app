@@ -2,7 +2,6 @@ package routes
 
 import (
 	"net/http"
-	"strconv"
 
 	"main/src/services"
 	"main/src/routes/helper"
@@ -12,8 +11,7 @@ import (
 
 // GetQuote gets a quote from the database
 func GetQuote(c *gin.Context) {
-	idString := c.Param("id")
-	id, err := strconv.Atoi(idString)
+	id, err := helper.ParamInt(c, "id")
 	if helper.JSONError(c, err, "Quote ID must be an integer") { return }
 
 	quote, err := services.GetQuote(id)

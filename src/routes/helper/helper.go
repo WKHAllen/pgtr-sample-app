@@ -2,6 +2,7 @@ package helper
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,4 +15,9 @@ func JSONError(c *gin.Context, err error, errorMsg string) bool {
 		})
 	}
 	return err != nil
+}
+
+// ParamInt gets a URL parameter as an integer
+func ParamInt(c *gin.Context, paramName string) (int, error) {
+	return strconv.Atoi(c.Param(paramName))
 }
