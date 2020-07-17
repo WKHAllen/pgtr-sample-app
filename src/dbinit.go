@@ -5,7 +5,7 @@ import (
 )
 
 // panicExec executes a SQL statement and panics if an error occurs
-func panicExec(dbm *db.DBManager, sql string, params ...interface{}) {
+func panicExec(dbm *db.Manager, sql string, params ...interface{}) {
 	err := dbm.Execute(sql, params...)
 	if err != nil {
 		panic(err)
@@ -13,7 +13,7 @@ func panicExec(dbm *db.DBManager, sql string, params ...interface{}) {
 }
 
 // InitDB creates and, in some cases, populates tables in the database
-func InitDB(dbm *db.DBManager) {
+func InitDB(dbm *db.Manager) {
 	// Person table
 	panicExec(dbm, `DROP TABLE IF EXISTS person;`)
 	panicExec(dbm, `
