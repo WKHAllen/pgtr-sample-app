@@ -1,1 +1,1 @@
-web: pgtr-sample-app
+web: main
