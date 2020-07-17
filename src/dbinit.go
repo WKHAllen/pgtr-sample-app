@@ -1,7 +1,11 @@
 package src
 
+import (
+	"main/src/db"
+)
+
 // panicExec executes a SQL statement and panics if an error occurs
-func panicExec(dbm *DBManager, sql string, params ...interface{}) {
+func panicExec(dbm *db.DBManager, sql string, params ...interface{}) {
 	err := dbm.Execute(sql, params...)
 	if err != nil {
 		panic(err)
@@ -9,7 +13,7 @@ func panicExec(dbm *DBManager, sql string, params ...interface{}) {
 }
 
 // InitDB creates and, in some cases, populates tables in the database
-func InitDB(dbm *DBManager) {
+func InitDB(dbm *db.DBManager) {
 	// Person table
 	panicExec(dbm, `DROP TABLE IF EXISTS person;`)
 	panicExec(dbm, `
@@ -51,10 +55,4 @@ func InitDB(dbm *DBManager) {
 	for _, quote := range quotes {
 		panicExec(dbm, `INSERT INTO quote (text) VALUES (?);`, quote)
 	}
-
-	// var id int
-	// err = dbm.QueryRow("INSERT INTO person (firstname, lastname) VALUES (?, ?) RETURNING id;", "Will", "Allen").Scan(&id)
-	// fmt.Println(id)
-	// err = dbm.QueryRow("INSERT INTO person (firstname, lastname) VALUES (?, ?) RETURNING id;", "Elon", "Musk").Scan(&id)
-	// fmt.Println(id)
 }
