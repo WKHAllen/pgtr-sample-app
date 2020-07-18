@@ -3,8 +3,8 @@ package routes
 import (
 	"net/http"
 
-	"main/src/services"
 	"main/src/routes/helper"
+	"main/src/services"
 
 	"github.com/gin-gonic/gin"
 )
@@ -19,5 +19,15 @@ func GetPerson(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{
 		"person": person,
+	})
+}
+
+// GetPeople gets a list of all the people from the database
+func GetPeople(c *gin.Context) {
+	people, err := services.GetPeople()
+	if helper.JSONErrorDefault(c, err) { return }
+
+	c.JSON(http.StatusOK, gin.H{
+		"people": people,
 	})
 }

@@ -21,3 +21,13 @@ func GetQuote(c *gin.Context) {
 		"quote": quote,
 	})
 }
+
+// GetQuotes gets a list of all the quotes from the database
+func GetQuotes(c *gin.Context) {
+	quotes, err := services.GetQuotes()
+	if helper.JSONErrorDefault(c, err) { return }
+
+	c.JSON(http.StatusOK, gin.H{
+		"quotes": quotes,
+	})
+}
