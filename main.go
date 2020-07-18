@@ -39,9 +39,9 @@ func main() {
 	gin.ForceConsoleColor()
 
 	// Set release mode
-	if os.Getenv("DEBUG") == "false" {
-		gin.SetMode(gin.ReleaseMode)
-	}
+	// if os.Getenv("DEBUG") == "false" {
+	// 	gin.SetMode(gin.ReleaseMode)
+	// }
 
 	// Set up routing and services
 	router := gin.Default()
