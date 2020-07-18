@@ -13,6 +13,19 @@ func GetPerson(id int) (string, error) {
 	return firstname + " " + lastname, nil
 }
 
+// GetRandomPerson gets a random person from the database
+func GetRandomPerson() (string, error) {
+	var firstname, lastname string
+
+	sql := "SELECT firstname, lastname FROM person ORDER BY RANDOM() LIMIT 1;"
+	err := dbm.QueryRow(sql).Scan(&firstname, &lastname)
+	if err != nil {
+		return "", err
+	}
+
+	return firstname + " " + lastname, nil
+}
+
 // GetPeople gets a list of all the people from the database
 func GetPeople() ([]string, error) {
 	var people []string

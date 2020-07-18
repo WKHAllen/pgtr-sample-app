@@ -8,8 +8,11 @@ import (
 func LoadRoutes(router *gin.Engine, path string) {
 	api := router.Group(path)
 
-	api.GET("/person/:id", GetPerson)
-	api.GET("/people",     GetPeople)
-	api.GET("/quote/:id",  GetQuote)
-	api.GET("/quotes",     GetQuotes)
+	api.GET("/person/id/:id", GetPerson)
+	api.GET("/person/random", GetRandomPerson)
+	api.GET("/people",        GetPeople)
+
+	api.GET("/quote/id/:id",  GetQuote)
+	api.GET("/quote/random",  GetRandomQuote)
+	api.GET("/quotes",        GetQuotes)
 }

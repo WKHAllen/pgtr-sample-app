@@ -22,6 +22,16 @@ func GetPerson(c *gin.Context) {
 	})
 }
 
+// GetRandomPerson gets a random person from the database
+func GetRandomPerson(c *gin.Context) {
+	person, err := services.GetRandomPerson()
+	if helper.JSONErrorDefault(c, err) { return}
+
+	c.JSON(http.StatusOK, gin.H{
+		"person": person,
+	})
+}
+
 // GetPeople gets a list of all the people from the database
 func GetPeople(c *gin.Context) {
 	people, err := services.GetPeople()

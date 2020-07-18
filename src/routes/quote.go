@@ -22,6 +22,16 @@ func GetQuote(c *gin.Context) {
 	})
 }
 
+// GetRandomQuote gets a random quote from the database
+func GetRandomQuote(c *gin.Context) {
+	quote, err := services.GetRandomQuote()
+	if helper.JSONErrorDefault(c, err) { return }
+
+	c.JSON(http.StatusOK, gin.H{
+		"quote": quote,
+	})
+}
+
 // GetQuotes gets a list of all the quotes from the database
 func GetQuotes(c *gin.Context) {
 	quotes, err := services.GetQuotes()
