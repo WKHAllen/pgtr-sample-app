@@ -38,6 +38,11 @@ func main() {
 	// Force Gin console color
 	gin.ForceConsoleColor()
 
+	// Set release mode
+	if os.Getenv("DEBUG") == "false" {
+		gin.SetMode(gin.ReleaseMode)
+	}
+
 	// Set up routing and services
 	router := gin.Default()
 	routes.LoadRoutes(router, "/api")
