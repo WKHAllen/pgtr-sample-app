@@ -1,1 +1,1 @@
-web: go build -o bin/pgtr.exe -v && bin\pgtr.exe
+web: cd app && npm run build && cd .. && go build -o bin/pgtr.exe -v && bin\pgtr.exe

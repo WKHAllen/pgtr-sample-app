@@ -1,1 +1,1 @@
-web: go build -o bin/pgtr && chmod +x ./bin/pgtr -v && ./bin/pgtr
+web: cd app && npm run build && cd .. && go build -o bin/pgtr && chmod +x ./bin/pgtr -v && ./bin/pgtr

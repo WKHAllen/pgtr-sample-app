@@ -14,6 +14,7 @@ import (
 	"main/src/routes"
 	"main/src/services"
 
+	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 	_ "github.com/heroku/x/hmetrics/onload"
 )
@@ -45,6 +46,7 @@ func main() {
 
 	// Set up routing and services
 	router := gin.Default()
+	router.Use(static.Serve("/", static.LocalFile("./app/build", true)))
 	routes.LoadRoutes(router, "/api")
 	services.SetDBManager(dbm)
 

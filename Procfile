@@ -1,1 +1,1 @@
-web: main
+web: cd app && npm run build && cd .. && main
