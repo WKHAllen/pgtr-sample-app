@@ -46,8 +46,8 @@ func main() {
 
 	// Set up routing and services
 	router := gin.Default()
-	router.Use(static.Serve("/", static.LocalFile("./app/build", true)))
 	routes.LoadRoutes(router, "/api")
+	router.Use(static.Serve("/", static.LocalFile("./app/build", true)))
 	services.SetDBManager(dbm)
 
 	// Set up server
