@@ -2,7 +2,7 @@ package routes
 
 import (
 	"fmt"
-	"main/src"
+	app "main/src"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -33,5 +33,5 @@ func LoadErrorRoutes(router *gin.Engine, path string) {
 		errors.GET(fmt.Sprintf("/%v", statusCode), errorHandler)
 	}
 
-	router.NoRoute(src.ReverseProxy(fmt.Sprintf("%s/%v", path, http.StatusNotFound)))
+	router.NoRoute(app.ReverseProxy(fmt.Sprintf("%s/%v", path, http.StatusNotFound)))
 }
