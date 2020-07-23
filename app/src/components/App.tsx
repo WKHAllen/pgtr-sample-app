@@ -12,26 +12,12 @@ export default class App extends React.Component {
 		return (
 			<Router>
 				<div className="App">
-					<ul className="App-header">
-						<li>
-							<Link to="/">Home</Link>
-						</li>
-						<li>
-							<Link to="/test1">Test 1</Link>
-						</li>
-						<li>
-							<Link to="/test2">Test 2</Link>
-						</li>
-						<li>
-							<Link to="/test3">Test 3</Link>
-						</li>
-					</ul>
 					<Switch>
 						<Route exact path="/" component={Home}></Route>
 						<Route exact path="/test1" component={Test1}></Route>
 						<Route exact path="/test2" component={Test2}></Route>
 						<Route exact path="/test3" component={Test3}></Route>
-						<Route component={NotFound}></Route>
+						<Route exact path="/error/404" component={NotFound}></Route>
 					</Switch>
 				</div>
 			</Router>

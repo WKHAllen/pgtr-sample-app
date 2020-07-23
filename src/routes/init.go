@@ -1,6 +1,10 @@
 package routes
 
 import (
+	"fmt"
+	"main/src"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,4 +19,19 @@ func LoadRoutes(router *gin.Engine, path string) {
 	api.GET("/quote/id/:id",  GetQuote)
 	api.GET("/quote/random",  GetRandomQuote)
 	api.GET("/quotes",        GetQuotes)
+}
+
+// LoadErrorRoutes creates redirects to error pages when errors occur
+func LoadErrorRoutes(router *gin.Engine, path string) {
+	errorHandlers := map[int]gin.HandlerFunc{
+		http.StatusNotFound: NotFound,
+	}
+
+	errors := router.Group(path)
+
+	for statusCode, errorHandler := range errorHandlers {
+		errors.GET(fmt.Sprintf("/%v", statusCode), errorHandler)
+	}
+
+	router.NoRoute(src.ReverseProxy(fmt.Sprintf("%s/%v", path, http.StatusNotFound)))
 }
