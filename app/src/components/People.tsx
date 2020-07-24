@@ -13,7 +13,7 @@ export default class People extends React.Component<{}, PeopleState> {
 		};
 	}
 
-	getJSON(url: string) {
+	getJSON(url: string): Promise<Response> {
 		return fetch(url).then(res => res.json());
 	}
 

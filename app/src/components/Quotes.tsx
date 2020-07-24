@@ -13,7 +13,7 @@ export default class Quotes extends React.Component<{}, QuotesState> {
 		};
 	}
 
-	getJSON(url: string) {
+	getJSON(url: string): Promise<Response> {
 		return fetch(url).then(res => res.json());
 	}
 
