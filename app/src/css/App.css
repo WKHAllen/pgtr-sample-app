@@ -1,10 +1,9 @@
 .App {
-	background-color: #282c34;
+	background-color: #1f273f;
 	color: white;
 	min-height: 100vh;
-	padding: 32px;
 }
 
-.App h1 {
-	text-align: center;
+.App-Body {
+	padding: 32px;
 }
