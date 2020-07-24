@@ -48,7 +48,7 @@ func InitDB(dbm *db.Manager) {
 		"We're not free in what we do because we're not free in what we want.",
 		"Yesterday, today and tomorrow are not consecutive, they are connected in a never-ending circle.",
 		"A man lives three lives. The first one ends with the loss of naivety, the second, with the loss of innocence and the third with the loss of life itself.",
-		"Yesterday, today and tomorrow are not consecutive, they are connected in a never-ending circle.",
+		"Only when we’ve freed ourselves of emotion can we be truly free. Only when you’re willing to sacrifice what you hold dearest.",
 		"The beginning is the end, and the end is the beginning.",
 		"We all face the same end. Those above have forgotten us. They do not judge us. In death I am alone, and my only judge is me.",
 	}
