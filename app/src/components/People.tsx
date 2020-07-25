@@ -5,6 +5,12 @@ interface PeopleState {
 	person: string
 }
 
+interface PeopleJSON {
+	person: string
+	people: string[]
+	error: string
+}
+
 export default class People extends React.Component<{}, PeopleState> {
 	constructor(props: any) {
 		super(props);
@@ -13,23 +19,29 @@ export default class People extends React.Component<{}, PeopleState> {
 		};
 	}
 
-	getJSON(url: string): Promise<Response> {
+	getJSON(url: string): Promise<PeopleJSON> {
 		return fetch(url).then(res => res.json());
 	}
 
 	getPersonById(event: React.ChangeEvent<HTMLInputElement>) {
 		this.getJSON(`/api/person/id/${event.target.value}`)
-			.then(console.log);
+			.then(data => {
+				this.setState({ person: data.person });
+			});
 	}
 
 	getRandomPerson() {
 		this.getJSON('/api/person/random')
-			.then(console.log);
+			.then(data => {
+				this.setState({ person: data.person });
+			});
 	}
 
 	getAllPeople() {
 		this.getJSON('/api/people')
-			.then(console.log);
+			.then(data => {
+				this.setState({ person: data.people.map(person => `"${person}"`).join(', ') });
+			});
 	}
 
 	render() {
@@ -56,7 +68,7 @@ export default class People extends React.Component<{}, PeopleState> {
 						All people
 					</button>
 				</div>
-				<div>{this.state.person}</div>
+				<div className="Person">{this.state.person}</div>
 			</div>
 		);
 	}

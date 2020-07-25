@@ -5,6 +5,12 @@ interface QuotesState {
 	quote: string
 }
 
+interface QuotesJSON {
+	quote: string
+	quotes: string[]
+	error: string
+}
+
 export default class Quotes extends React.Component<{}, QuotesState> {
 	constructor(props: any) {
 		super(props);
@@ -13,23 +19,29 @@ export default class Quotes extends React.Component<{}, QuotesState> {
 		};
 	}
 
-	getJSON(url: string): Promise<Response> {
+	getJSON(url: string): Promise<QuotesJSON> {
 		return fetch(url).then(res => res.json());
 	}
 
 	getQuoteById(event: React.ChangeEvent<HTMLInputElement>) {
 		this.getJSON(`/api/quote/id/${event.target.value}`)
-			.then(console.log);
+			.then(data => {
+				this.setState({ quote: data.quote });
+			});
 	}
 
 	getRandomQuote() {
 		this.getJSON('/api/quote/random')
-			.then(console.log);
+			.then(data => {
+				this.setState({ quote: data.quote });
+			});
 	}
 
 	getAllQuotes() {
 		this.getJSON('/api/quotes')
-			.then(console.log);
+			.then(data => {
+				this.setState({ quote: data.quotes.map(quote => `"${quote}"`).join(', ') });
+			});
 	}
 
 	render() {
@@ -56,7 +68,7 @@ export default class Quotes extends React.Component<{}, QuotesState> {
 						All quotes
 					</button>
 				</div>
-				<div>{this.state.quote}</div>
+				<div className="Quote">{this.state.quote}</div>
 			</div>
 		);
 	}

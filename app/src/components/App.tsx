@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import '../css/App.css';
-import NotFound from './errors/NotFound';
 import Home from './Home';
 import Header from './Header';
 import People from './People';
 import Quotes from './Quotes';
+import NotFound from './errors/NotFound';
 
 export default class App extends React.Component {
 	render() {
