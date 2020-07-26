@@ -19,8 +19,13 @@ export default class Quotes extends React.Component<{}, QuotesState> {
 		};
 	}
 
-	getJSON(url: string): Promise<QuotesJSON> {
-		return fetch(url).then(res => res.json());
+	async getJSON(url: string): Promise<QuotesJSON> {
+		const res = await fetch(url);
+		try {
+			return await res.json();
+		} catch (_) {
+			return { quote: '', quotes: [], error: '' };
+		}
 	}
 
 	getQuoteById(event: React.ChangeEvent<HTMLInputElement>) {

@@ -19,8 +19,13 @@ export default class People extends React.Component<{}, PeopleState> {
 		};
 	}
 
-	getJSON(url: string): Promise<PeopleJSON> {
-		return fetch(url).then(res => res.json());
+	async getJSON(url: string): Promise<PeopleJSON> {
+		const res = await fetch(url);
+		try {
+			return await res.json();
+		} catch (_) {
+			return { person: '', people: [], error: '' };
+		}
 	}
 
 	getPersonById(event: React.ChangeEvent<HTMLInputElement>) {
