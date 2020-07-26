@@ -15,10 +15,10 @@ export default class App extends React.Component {
 					<Header />
 					<div className="App-Body">
 						<Switch>
-							<Route exact path="/" component={Home}></Route>
-							<Route exact path="/people" component={People}></Route>
-							<Route exact path="/quotes" component={Quotes}></Route>
-							<Route exact path="/error/404" component={NotFound}></Route>
+							<Route exact path="/" component={Home} />
+							<Route exact path="/people" component={People} />
+							<Route exact path="/quotes" component={Quotes} />
+							<Route component={NotFound} />
 						</Switch>
 					</div>
 				</div>

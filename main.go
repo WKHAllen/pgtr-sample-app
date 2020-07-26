@@ -46,9 +46,14 @@ func main() {
 
 	// Set up routing and services
 	router := gin.Default()
+	router.LoadHTMLGlob("app/build/index.html")
 	routes.LoadRoutes(router, "/api")
-	routes.LoadErrorRoutes(router, "/error")
+	//routes.LoadErrorRoutes(router, "/error")
 	router.Use(static.Serve("/", static.LocalFile("./app/build", true)))
+	router.NoRoute(func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.html", nil)
+	})
+
 	services.SetDBManager(dbm)
 
 	// Set up server
@@ -73,7 +78,7 @@ func main() {
 		os.Interrupt)
 
 	<-quit
-	ctx, cancel := context.WithTimeout(context.Background(), 5 * time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	if err := server.Shutdown(ctx); err != nil {
 		panic(err)
