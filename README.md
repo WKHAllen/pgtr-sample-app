@@ -1,8 +1,8 @@
 # PGTR Sample App
 
-This is a sample app that uses a PostreSQL-Go-TypeScript-React stack.
+This is a sample app that uses a PostgreSQL-Go-TypeScript-React stack.
 
-It can serve as a template for projects designed using the PGTR stack. Simply clone the repository and you are good to go.
+It can serve as a template for projects designed using the PGTR stack. Simply clone the repository, and you are good to go.
 
 ## Clone
 
