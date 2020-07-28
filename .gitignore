@@ -2,7 +2,6 @@ todo.txt
 .vscode
 .idea
 .env
-/bin
 .docker_build/
 
 # dependencies
