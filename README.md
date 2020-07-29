@@ -99,7 +99,7 @@ The `src/routes/helper` package will handle some common routing problems for you
 
 ## Running locally
 
-Scripts have been provided for running the app locally.
+Scripts have been provided for running the app locally. Run the appropriate script, then navigate to [`localhost:3000`](http://localhost:3000/) in your browser.
 
 ### Windows
 
