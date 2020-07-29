@@ -96,3 +96,23 @@ Replace `<routeFunction>` above with the name of the function you added to the `
 The `src/routes/helper` package will handle some common routing problems for you. Use it.
 
 **Do not** delete `init.go` from the `src/routes` and `src/services` packages. They are important, and the REST API will not work without them.
+
+## Running locally
+
+Scripts have been provided for running the app locally.
+
+### Windows
+
+On Windows, use `run.bat`:
+
+```console
+run
+```
+
+### MacOS and Linux
+
+On MacOS or Linux, use `run.sh`:
+
+```console
+./run.sh
+```
