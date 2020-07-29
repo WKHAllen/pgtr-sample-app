@@ -73,7 +73,25 @@ CREATE TABLE Person (
 
 since the table will already exist unless this is the first time starting the app.
 
-### Routes and services
+## Extending the app
+
+The app can be easily extended. Add frontend components or backend REST endpoints using the instructions below.
+
+### Frontend
+
+The frontend of the application is a series of React components written in TypeScript. Some components are set up to make calls to the REST API.
+
+#### Adding components
+
+To add a component, create a new TypeScript React file in the `app/src/components` directory. Corresponding stylesheets should go in `app/src/css`.
+
+The app is configured to load [`app/src/components/errors/NotFound.tsx`](app/src/components/errors/NotFound.tsx) in the event of a 404. Editing this component is encouraged. Deleting it is not.
+
+#### Using REST endpoints
+
+Use the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) to make requests to REST endpoints. See [`app/src/components/People.tsx`](app/src/components/People.tsx) for an example.
+
+### Backend
 
 The backend is divided into routes and services. The routes package manages the REST endpoints, which use the services to interact with the database.
 
