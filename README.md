@@ -83,7 +83,7 @@ To add an endpoint, create a new Go file in the `src/routes` package or open an 
 
 Create or add to a file in the `src/services` package. Add a function which again follows the format as others in the package. Use the `dbm` object to interact with the database.
 
-After creating an endpoint, you'll need to expose it to the router. Open [`src/routes/init.go`](src/routes/init.go) and append the following line to the function body:
+After creating an endpoint, you'll need to expose it to the router. Open [`src/routes/init.go`](src/routes/init.go) and append the following line to the `LoadRoutes` function body:
 
 ```go
 api.GET("<URLPath>", <routeFunction>)
