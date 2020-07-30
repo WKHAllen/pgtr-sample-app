@@ -91,6 +91,10 @@ The app is configured to load [`app/src/components/errors/NotFound.tsx`](app/src
 
 Use the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) to make requests to REST endpoints. See [`app/src/components/People.tsx`](app/src/components/People.tsx) for an example.
 
+#### Routing
+
+Routing is done on the frontend, using [`react-router-dom`](https://www.npmjs.com/package/react-router-dom). See [`app/src/components/App.tsx`](app/src/components/App.tsx) or [this quickstart guide](https://reactrouter.com/web/guides/quick-start) for examples.
+
 ### Backend
 
 The backend is divided into routes and services. The routes package manages the REST endpoints, which use the services to interact with the database.
